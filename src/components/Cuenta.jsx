@@ -11,7 +11,7 @@ const Cuenta = () => {
   const [monto, setMonto] = useState(0); // Para consignar o retirar dinero
 
   const handleConsultarCuenta = () => {
-    fetch(`/api/cuentas/${numeroCuenta}`)
+    fetch(`https://api-banco-clase.onrender.com/api/cuentas/${numeroCuenta}`)
       .then(response => {
         if (!response.ok) {
           throw new Error('Cuenta no encontrada');
@@ -23,7 +23,7 @@ const Cuenta = () => {
   };
 
   const handleAddCuenta = () => {
-    fetch('/api/cuentas', {
+    fetch('https://api-banco-clase.onrender.com/api/cuentas', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -38,7 +38,7 @@ const Cuenta = () => {
   };
 
   const handleDeleteCuenta = (numeroCuenta) => {
-    fetch(`/api/cuentas/${numeroCuenta}`, {
+    fetch(`https://api-banco-clase.onrender.com/api/cuentas/${numeroCuenta}`, {
       method: 'DELETE',
     })
       .then(() => setCuentas(cuentas.filter(cuenta => cuenta.numeroCuenta !== numeroCuenta)))
@@ -51,7 +51,7 @@ const Cuenta = () => {
       return;
     }
     
-    fetch(`/api/cuentas/consignar/${numeroCuenta}`, {
+    fetch(`https://api-banco-clase.onrender.com/api/cuentas/consignar/${numeroCuenta}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -80,7 +80,7 @@ const Cuenta = () => {
       return;
     }
   
-    fetch(`/api/cuentas/retirar/${numeroCuenta}`, {
+    fetch(`https://api-banco-clase.onrender.com/api/cuentas/retirar/${numeroCuenta}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

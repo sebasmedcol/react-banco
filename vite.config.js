@@ -8,7 +8,8 @@ export default defineConfig({
       '/api': {
         target: 'https://api-banco-clase.onrender.com',
         changeOrigin: true,
-        secure: false,
+        secure: true,
+        ws: true,
       }
     }
   }
