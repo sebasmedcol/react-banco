@@ -12,7 +12,7 @@ const Cliente = () => {
 
   // Obtener todos los clientes al cargar el componente
   useEffect(() => {
-    fetch('/api/clientes')
+    fetch('https://api-banco-clase.onrender.com/api/clientes')
       .then(response => response.json())
       .then(data => setClientes(data))
       .catch(error => console.error('Error al obtener clientes:', error));
@@ -20,7 +20,7 @@ const Cliente = () => {
 
   // Agregar un nuevo cliente
   const handleAddCliente = () => {
-    fetch('/api/clientes', {
+    fetch('https://api-banco-clase.onrender.com/api/clientes', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -36,7 +36,7 @@ const Cliente = () => {
 
   // Eliminar un cliente
   const handleDeleteCliente = (id) => {
-    fetch(`/api/clientes/${id}`, {
+    fetch(`https://api-banco-clase.onrender.com/api/clientes/${id}`, {
       method: 'DELETE',
     })
     .then(() => setClientes(clientes.filter(cliente => cliente._id !== id)))
@@ -51,7 +51,7 @@ const Cliente = () => {
 
   // Actualizar cliente (PUT)
   const handleUpdateCliente = () => {
-    fetch(`/api/clientes/${editingCliente._id}`, {
+    fetch(`https://api-banco-clase.onrender.com/api/clientes/${editingCliente._id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
